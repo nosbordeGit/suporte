@@ -21,4 +21,4 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/suporte', [SuporteController::class, 'index'])->name('suporte.index');
+Route::get('/suporte', [SuporteController::class, 'index'])->name('suporte.index')->middleware('auth');
