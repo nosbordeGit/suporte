@@ -10,4 +10,15 @@ class SuporteController extends Controller
     {
         return view('site.suporte');
     }
+
+
+    public function chamado()
+    {
+        return view('site.chamado');
+    }
+
+    public function chamadoSave(Request $request)
+    {
+        dd($request);
+    }
 }

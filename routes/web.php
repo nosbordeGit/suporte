@@ -22,3 +22,5 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/suporte', [SuporteController::class, 'index'])->name('suporte.index')->middleware('auth');
+Route::get('/chamado',[SuporteController::class,'chamado'])->name('suporte.chamado');
+Route::post('/chamadoSave',[SuporteController::class,'chamadoSave'])->name('suporte.chamadoSave');
