@@ -15,12 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('descricao');
-            $table->unsignedBigInteger('usuario_id');  // Relacionamento com usuários
-            $table->unsignedBigInteger('status_id');   // Relacionamento com status
+            $table->string('email');
             $table->timestamps();
 
-            // Chave estrangeira para status
-            $table->foreign('status_id')->references('id')->on('status')->onDelete('cascade');
         });
     }
 

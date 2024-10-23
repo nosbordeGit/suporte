@@ -18,12 +18,16 @@
                     <strong>Bem-vindo, {{ Auth::user()->name }}!</strong> Utilize o formulário abaixo para abrir um novo chamado.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Problema</label>
+                    <input type="text" class="form-control" id="titulo" name="titulo" required>
+                  </div>
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" readonly >
               </div>
               <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição do Problema</label>
-                <textarea class="form-control" id="descricao" name="descricao" rows="6" placeholder="Descreva o problema com detalhes..."></textarea>
+                <textarea class="form-control" id="descricao" name="descricao" rows="6" placeholder="Descreva o problema com detalhes..." requiredphp></textarea>
               </div>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary">Salvar</button>
