@@ -12,7 +12,7 @@ class suporte extends Model
     //indica o nome da tabela no banco de dados
     protected $table = 'chamados';
 
-    //indica as cilunas onde pode ser salvo
+    //indica as colunas onde pode ser salvo
 
     protected $fillable =['titulo', 'descricao', 'email'];
 

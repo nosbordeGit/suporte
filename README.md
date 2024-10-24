@@ -9,28 +9,18 @@ DB_DATABASE=suporte
 DB_USERNAME=root
 DB_PASSWORD=
 
-3 - rodar este comando docker a baixo para atualizar as dependencias do laravel
-./vendor/bin/sail composer 
+3 - Utilize o comando dentro da pasta do projeto 
+composer install 
 
-4 - Gere a chave da aplicação ./vendor/bin/sail php artisan key:generate
+4 - Crie a chave de Segurança usando o comando
+php artisan key:generate
 
-5 - Executem este comando para criar seu banco de dados
+5 - Para funcionar o sistema de autenticação dentro da pasta do projeto instale o npm
+npm install
 
-./vendor/bin/sail php artisan migrate
+6 - inicie o servidor vit utilizando o comando 
+npm run dev
 
-Para finalizar o arquivo de Atualização
+0bs. abra um terminal dentro do projeto para iniciar o servidor, pois este comando trava o terminal.
 
-1 - alterar a rota update passando o parametro do ID Route::put('/suporte/update/{suporte}',[SuporteController::class,'update'])->name('suporte.update');
 
-2 - editar Alterar.blade.php {{-- Linha alterada no formulario para passar os dados do formulario utilizando o ID correto--}}
-
-3 - alterar o listar.blade.php alterar listar para mostrar status do atendimento no botão {{$item->atendimento}}
-
-4 - Alterar o SuporteController
-
-public function update(Request $request, Suporte $suporte) { //dd($request); $suporte->update([ 'nome' =>$request->nome, 'email' =>$request->email, 'atendimento' =>$request->atendimento, 'solucao' =>$request->solucao,
-
-]);
-return redirect()->route('suporte.listar');
-
-}
