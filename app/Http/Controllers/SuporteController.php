@@ -8,7 +8,10 @@ class SuporteController extends Controller
 {
     public function index()
     {
-        return view('site.suporte');
+        //recupera dados do banco de dados tabela chamados
+        $chamados= suporte::orderBy('created_at','asc')->get();
+        //dd($chamados);
+        return view('site.suporte',['chamados'=>$chamados]);
     }
 
 

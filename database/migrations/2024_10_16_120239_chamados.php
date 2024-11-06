@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('descricao');
             $table->string('email');
+            $table->enum('status',['Aberto','Em atendimento', 'fechado'])->default('Aberto');
             $table->timestamps();
 
         });
