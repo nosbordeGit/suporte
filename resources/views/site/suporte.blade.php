@@ -26,9 +26,11 @@
                 <td>{{ $chamado->created_at }}</td>
             </tr>
         @empty
-            <span>Nenhum chamado registrado</span>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Nenhum chamado registrado!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         @endforelse
-
       </tbody>
     </table>
 
