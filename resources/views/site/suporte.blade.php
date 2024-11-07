@@ -2,7 +2,8 @@
     <x-slot name="title">
         Home | Suporte
     </x-slot>
-       @section('container')
+
+    @section('container')
     <h1 class="text-center mb-4">Lista de Chamados</h1>
 
     <table class="table table-bordered table-hover">
@@ -13,31 +14,42 @@
           <th>Descrição</th>
           <th>Status</th>
           <th>Criado em</th>
+          <th>Ação</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Exemplo de registros para teste -->
         @forelse ($chamados as $chamado)
             <tr>
-                <td>{{$chamado->id  }}</td>
+                <td>{{ $chamado->id }}</td>
                 <td>{{ $chamado->titulo }}</td>
                 <td>{{ $chamado->email }}</td>
-                <td><span class="badge bg-success text-dark">Aberto</span></td>
+                <!--Inserir este if para tornar o status dinamico-->
+                @if ($chamado->status === 'Aberto')
+                    <td><span class="badge bg-success text-dark">{{ $chamado->status }}</span></td>
+                @elseif ($chamado->status === 'Em atendimento')
+                    <td><span class="badge bg-warning text-dark">{{ $chamado->status }}</span></td>
+                @elseif ($chamado->status === 'Fechado')
+                    <td><span class="badge bg-danger text-dark">{{ $chamado->status }}</span></td>
+                @endif
                 <td>{{ $chamado->created_at }}</td>
+                <td><!--Adiciona botão e passa o ID para a tela de edição -->
+                    <a href="{{ route('suporte.edit', $chamado->id) }}" class="btn btn-sm btn-primary">Alterar</a>
+                </td>
             </tr>
         @empty
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                Nenhum chamado registrado!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            <tr>
+                <td colspan="6">
+                    <div class="alert alert-warning text-center">
+                        Nenhum chamado registrado!
+                    </div>
+                </td>
+            </tr>
         @endforelse
       </tbody>
     </table>
 
-    <!-- Botão para adicionar novos registros -->
     <div class="text-center mt-4">
-      <a href="/chamado" class="btn btn-primary">Novo Chamado</a>
+        <a href="/chamado" class="btn btn-primary">Novo Chamado</a>
     </div>
-  </div>
     @endsection
 </x-layout>
