@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        Home | Suporte
+        Suporte
     </x-slot>
 
     @section('container')

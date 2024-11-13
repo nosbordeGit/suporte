@@ -33,4 +33,15 @@ class SuporteController extends Controller
         $chamado = suporte::findOrFail($id);
         return view('site.edit',compact('chamado'));
     }
+    // criando a atualização dos dados vindos do formulario de update Aula 13/11
+    public function update(Request $request, $id)
+    {
+        $chamado = suporte::findOrFail($id);
+        $chamado->titulo = $request->input('titulo');
+        $chamado->descricao = $request->input('descricao');
+        $chamado->status = $request->input('status');
+        //dd($chamado);
+        $chamado->save();
+        return redirect()->route('suporte.index');
+    }
 }

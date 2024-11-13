@@ -10,8 +10,10 @@
     <div class="container mt-5">
         <x-nav></x-nav>
         <br>
-        <form action="{{ route('suporte.chamadoSave') }}" method="POST">
+        <!--Alteração do formulario para enviar os dados corretos para o controller update Aula 13/11-->
+        <form action="{{ route('suporte.update', $chamado->id) }}" method="POST">
             @csrf
+            @method('PUT') <!--Implementando o metodo PUT Aula 13/11-->
             <div class="mb-3">
                       <!-- Alerta de boas-vindas -->
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -29,6 +31,15 @@
                 <label for="descricao" class="form-label">Descrição do Problema</label>
                 <textarea class="form-control" id="descricao" name="descricao" rows="6">{{ $chamado->descricao }}</textarea>
               </div>
+              <!--Inserindo o status ao  Aula 13/11-->
+              <div class="mb-3 col-md-4">
+                <label for="status" class="form-label">Status do Chamado</label>
+                <select class="form-select" id="status" name="status" required>
+                    <option value="Aberto" {{ $chamado->status == 'Aberto' ? 'selected' : '' }}>Aberto</option>
+                    <option value="Em Atendimento" {{ $chamado->status == 'Em Atendimento' ? 'selected' : '' }}>Em Atendimento</option>
+                    <option value="fechado" {{ $chamado->status == 'Fechado' ? 'selected' : '' }}>Fechado</option>
+                </select>
+            </div>
               <div class="col-12">
                 <!--Inserir Botão de voltar-->
                 <button type="submit" class="btn btn-primary">Salvar</button>

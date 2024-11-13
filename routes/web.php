@@ -25,4 +25,6 @@ Route::get('/suporte', [SuporteController::class, 'index'])->name('suporte.index
 Route::get('/chamado',[SuporteController::class,'chamado'])->name('suporte.chamado');
 Route::post('/chamadoSave',[SuporteController::class,'chamadoSave'])->name('suporte.chamadoSave');
 Route::get('/editar/{id}', [SuporteController::class, 'editar'])->name('suporte.edit');
+//criação da rota para receber os dados de update aula 13/11
+Route::put ('/update/{id}', [SuporteController::class,'update'])->name('suporte.update');
 
