@@ -37,8 +37,7 @@ class SuporteController extends Controller
     public function update(Request $request, $id)
     {
         $chamado = suporte::findOrFail($id);
-        $chamado->titulo = $request->input('titulo');
-        $chamado->descricao = $request->input('descricao');
+        $chamado->atendimento = $request->input('atendimento');
         $chamado->status = $request->input('status');
         //dd($chamado);
         $chamado->save();

@@ -14,6 +14,6 @@ class suporte extends Model
 
     //indica as colunas onde pode ser salvo
 
-    protected $fillable =['titulo', 'descricao', 'email'];
+    protected $fillable =['titulo', 'descricao', 'email', 'status','atendimento'];
 
 }

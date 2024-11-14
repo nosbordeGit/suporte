@@ -22,21 +22,25 @@
                 </div>
                 <div class="mb-3">
                     <label for="descricao" class="form-label">Problema</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo" required value="{{ $chamado->titulo }}">
+                    <input type="text" class="form-control" id="titulo" name="titulo" required value="{{ $chamado->titulo }}" readonly>
                   </div>
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" readonly >
               </div>
               <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição do Problema</label>
-                <textarea class="form-control" id="descricao" name="descricao" rows="6">{{ $chamado->descricao }}</textarea>
+                <textarea class="form-control" id="descricao" name="descricao" rows="6" readonly>{{ $chamado->descricao }}</textarea>
+              </div>
+              <div class="mb-3">
+                <label for="descricao" class="form-label">Solução</label>
+                <textarea class="form-control" id="atendimento" name="atendimento" rows="6">{{ $chamado->atendimento }}</textarea>
               </div>
               <!--Inserindo o status ao  Aula 13/11-->
               <div class="mb-3 col-md-4">
                 <label for="status" class="form-label">Status do Chamado</label>
                 <select class="form-select" id="status" name="status" required>
                     <option value="Aberto" {{ $chamado->status == 'Aberto' ? 'selected' : '' }}>Aberto</option>
-                    <option value="Em Atendimento" {{ $chamado->status == 'Em Atendimento' ? 'selected' : '' }}>Em Atendimento</option>
+                    <option value="Em atendimento" {{ $chamado->status == 'Em atendimento' ? 'selected' : '' }}>Em Atendimento</option>
                     <option value="fechado" {{ $chamado->status == 'Fechado' ? 'selected' : '' }}>Fechado</option>
                 </select>
             </div>
